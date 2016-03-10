@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+  root 'home#index'
+
+  get '/timeline' => 'user#timeline', as: :timeline
+
+  get 'sign_in' => 'session#new', as: :sign_in
+  post 'sign_in' => 'session#create'
+  get 'sign_out' => 'session#delete', as: :sign_out
+
+  get '/sign_up' => 'user#new', as: :new_user
+  post '/sign_up' => 'user#create', as: :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
