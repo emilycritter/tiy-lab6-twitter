@@ -7,7 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <nav>
+    <% if @current_user %>
+      <%= link_to "Sign Out", sign_out_path %>
+      <%= @current_user.name %>
+      &nbsp;
+    <% else %>
+      <%= link_to "Sign In", sign_in_path %>
+    <% end %>
+  </nav>
 <%= yield %>
 
 </body>
