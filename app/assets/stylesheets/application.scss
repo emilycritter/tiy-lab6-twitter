@@ -1,0 +1,43 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'home';
+@import 'session';
+@import 'user';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+$h1-font: 'Bree Serif', serif;
+$blog-font: 'Raleway', sans-serif;
+$font-color: #333333;
+
+h1 {
+  font-family: $h1-font;
+}
+h3 {
+  font-family: $blog-font;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: $font-color;
+}
+.lead {
+  font-family: $blog-font;
+  font-size: 20px;
+}
+p {
+  font-family: $blog-font;
+  font-size: 14px;
+}
+.form-group {
+  font-family: $blog-font;
+}
+.btn {
+  font-family: $blog-font;
+}
+.container {
+  min-width: 95%;
+}
+.container-fluid {
+  max-width: 95%;
+  min-width: 95%;
+}
