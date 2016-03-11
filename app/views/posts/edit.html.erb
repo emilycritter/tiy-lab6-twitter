@@ -1,2 +1,13 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<%= render 'shared/navbar' %>
+<div class="container">
+  <div class="thumbnail">
+    <h1>
+      Edit old meeeoooww <small>edit for more kitty cuteness</small>
+      &nbsp;&nbsp;
+      <%= link_to post_path(id: @post.id), class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored", method: :delete, data: {confirm: "Are you sure you want to delete?"} do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </h1>
+    <%= render 'form' %>
+  </div>
+</div>

@@ -4,7 +4,7 @@ class UserController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :photo)
   end
 
   def create
@@ -29,4 +29,9 @@ class UserController < ApplicationController
       @posts = Post.all.order("created_at desc")
     end
   end
+
+  def show
+    @user = User.find_by(name: params[:name])
+  end
+
 end

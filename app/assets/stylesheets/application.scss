@@ -9,7 +9,35 @@
 $h1-font: 'Bree Serif', serif;
 $blog-font: 'Raleway', sans-serif;
 $font-color: #333333;
+$purple: #445291;
 
+.navbar {
+  background-color: #fff;
+  height: 82px;
+}
+.main-header {
+  align-items: center;
+  text-align: center;
+  height: 50px;
+  background-color: $purple;
+}
+.container {
+  max-height: 100%;
+  padding: 5px;
+}
+.navbar-right {
+  height: 70px;
+  max-width: 70%;
+  a {
+    line-height: 72px;
+  }
+  .btn {
+    line-height: 20px;
+  }
+}
+.navbar-left {
+  max-width: 20%;
+}
 h1 {
   font-family: $h1-font;
 }
@@ -40,4 +68,7 @@ p {
 .container-fluid {
   max-width: 95%;
   min-width: 95%;
+}
+.thumbnail {
+  padding: 10px;
 }

@@ -1,29 +1,54 @@
 class PostsController < ApplicationController
+  before_action do
+    @current_user = User.find_by id: session[:user_id]
+    if @current_user.blank?
+      store_location
+      redirect_to sign_in_path
+    end
+  end
+
   def index
   end
 
   def show
+    @post = Post.find_by id: params[:id]
   end
 
   def new
+    @post = Post.new
   end
 
   def create
+    @post = Post.new post_params
+    @post.user = @current_user
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
+    @post = Post.find_by id: params[:id]
   end
 
   def edit
+    @post = Post.find_by id: params[:id]
   end
 
   def update
+    @post = Post.find_by id: params[:id]
+    if @post.update post_params
+      redirect_to post_path(id: @post.id)
+    else
+      render :edit
+    end
   end
 
   def delete
   end
 
   def post_params
-    params.require(:post).permit(:post_text, :user_id, :photo_id, :password)
+    params.require(:post).permit(:post_text, :photo, :password)
   end
 end
