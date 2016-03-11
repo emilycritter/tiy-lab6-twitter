@@ -21,18 +21,22 @@ $purple: #445291;
   height: 50px;
   background-color: $purple;
 }
-.container-fluid {
+.container {
   max-height: 100%;
   padding: 5px;
 }
 .navbar-right {
   height: 70px;
+  max-width: 70%;
   a {
     line-height: 72px;
   }
   .btn {
     line-height: 20px;
   }
+}
+.navbar-left {
+  max-width: 20%;
 }
 h1 {
   font-family: $h1-font;

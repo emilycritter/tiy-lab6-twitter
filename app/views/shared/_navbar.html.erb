@@ -1,8 +1,8 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-left">
       <% if @current_user %>
-        <%= image_tag attachment_url(@current_user, :photo, :fill, 70, 70, format: "jpg"), style:"max-width: 100%; min-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
+        <%= image_tag attachment_url(@current_user, :photo, :fill, 70, 70, format: "jpg"), style:"max-width: 70px; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
       <% end %>
     </div>
     <div class="navbar-right">
