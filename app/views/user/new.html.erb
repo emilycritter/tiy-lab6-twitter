@@ -24,14 +24,11 @@
   </div>
 
   <div class="form-group">
-    <%= f.attachment_field :photo %>
-    <% if @user.errors[:photo].any? %>
-      <span class="mdl-textfield__error">* <%= @user.errors[:photo].join(", ") %> </span>
-    <% end %>
     <%= f.label :photo, class: "" %>
+    <%= f.attachment_field :photo, class: "form-control" %>
   </div>
 
-  <div class="">
+  <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
     or
     <%= link_to "Sign In", sign_in_path %>
