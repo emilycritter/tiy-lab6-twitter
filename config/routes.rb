@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'post/index'
+
+  get 'post/new'
+
+  get 'post/show'
+
+  get 'post/edit'
+
   root 'home#index'
 
   get '/timeline' => 'user#timeline', as: :timeline
