@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'user#timeline', as: :timeline
 
-  get '/timeline' => 'user#timeline', as: :timeline
+  # get 'homepage' => 'home#index', as: :home
 
   get 'sign_in' => 'session#new', as: :sign_in
   post 'sign_in' => 'session#create'

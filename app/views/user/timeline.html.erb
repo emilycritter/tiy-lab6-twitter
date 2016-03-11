@@ -1,2 +1,15 @@
-<h1>User#timeline</h1>
-<p>Find me in app/views/user/timeline.html.erb</p>
+<div class="container">
+  <div class="thumbnail">
+    <% @posts.each do |post| %>
+      <strong><%= post.user.name %>&nbsp;&nbsp;</strong>
+      <small>
+        <span class="glyphicon glyphicon-time"></span>
+        at <%= post.created_at.strftime("%b %d, %Y") %>
+      </small>
+      <div class="post">
+        <%= post.post_text %>
+        <%= image_tag attachment_url(post, :photo, :fill, 400, 150, format: "jpg"), style:"max-width: 100%; min-width: 100%; border: 1px solid #777777;"%>
+      <% end %>
+      </div>
+  </div>
+</div>
