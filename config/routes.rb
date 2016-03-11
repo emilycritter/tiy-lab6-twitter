@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'user#timeline', as: :timeline
+  root 'user#timeline'
 
   # get 'homepage' => 'home#index', as: :home
 

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="thumbnail">
     <% @posts.each do |post| %>
-      <strong><%= post.user.name %>&nbsp;&nbsp;</strong>
+      <strong><%= post.user.name if post.user %>&nbsp;&nbsp;</strong>
       <small>
         <span class="glyphicon glyphicon-time"></span>
         at <%= post.created_at.strftime("%b %d, %Y") %>

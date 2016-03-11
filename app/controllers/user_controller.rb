@@ -21,13 +21,12 @@ class UserController < ApplicationController
     user_id = session[:user_id]
     if user_id.present?
       @current_user = User.find_by id: user_id
-    end
-    if user_id.present?
+      # follower_ids = following_users.pluck(:id)
+      # all_ids = follower_ids << user.id
+      # @posts = Post.where(user_id: all_ids).order("created_at DESC")
       @posts = Post.all.order("created_at desc")
     else
-      follower_ids = following_users.pluck(:id)
-      all_ids = follower_ids << user.id
-      @posts = Post.where(user_id: all_ids).order("created_at DESC")
+      @posts = Post.all.order("created_at desc")
     end
   end
 end
