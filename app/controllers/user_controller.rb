@@ -29,4 +29,9 @@ class UserController < ApplicationController
       @posts = Post.all.order("created_at desc")
     end
   end
+
+  def show
+    @user = User.find_by(name: params[:name])
+  end
+
 end

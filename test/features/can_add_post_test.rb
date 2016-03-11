@@ -14,7 +14,8 @@ class CanAddPostTest < Capybara::Rails::TestCase
     fill_in "Password", with: "12345678"
     click_button "Sign In"
 
-    click_link "New"
+    page.first("#new-post").click
+
     within("#new_post") do
       fill_in "Post", with: "new meows. all the meows"
       attach_file('Photo', "#{Rails.root}/test/fixtures/kitty.jpg")
