@@ -2,7 +2,7 @@
   <div class="row">
     <%= render 'shared/navbar' %>
 
-    <div class="col-md-9">
+    <div class="col-md-8">
       <% if @user %>
         <% @user.posts.order("created_at desc").each do |post| %>
           <div class="thumbnail">
@@ -17,8 +17,9 @@
 
             <div class="post">
               <% if post.photo %>
-                <%= image_tag attachment_url(post, :photo, :fill, 500, 500, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: 0 auto;"%>
-                <br>
+                <div class="post-photo">
+                  <%= image_tag attachment_url(post, :photo, :fill, 500, 500, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: 0 auto;"%>
+                </div>
                 <br>
               <% end %>
               <%= post.post_text %>
