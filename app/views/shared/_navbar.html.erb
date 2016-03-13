@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-4">
   <div class="thumbnail">
     <div class="profile-picture">
       <% if @current_user %>
@@ -13,13 +13,12 @@
         <% end %>
           <%= link_to user_path(name: @current_user.name) do %>
             <%= @current_user.name %>
-            &nbsp;
             <i class="fa fa-user"></i>
           <% end %>
-        <%= link_to "Sign Out", sign_out_path, class: "btn btn-default" %>
+        <%= link_to "Sign Out", sign_out_path, class: "btn btn-primary" %>
       <% else %>
         <%= link_to "hello", root_path %>
-        <%= link_to "Sign In", sign_in_path, class: "btn btn-default" %>
+        <%= link_to "Sign In", sign_in_path, class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

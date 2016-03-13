@@ -68,20 +68,27 @@ p {
   padding: 20px;
   margin: 20px auto;
 }
-.col-md-9 {
+.row {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.col-md-8 {
   .thumbnail {
-    max-width: 850px;
   }
 }
-.col-md-3 {
+.col-md-4 {
   .thumnail {
-    max-width: 300px;
   }
 }
 .post-heading {
   i {
     font-size: 16px;
   }
+}
+.post-photo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .post-details {
   display: flex;
