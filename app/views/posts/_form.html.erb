@@ -6,12 +6,12 @@
 
 <%= form_for @post do |f| %>
   <div class="form-group">
-    <%= f.label :post_text %>
+    <%= f.label :post_text, "catter chatter" %>
     <%= f.text_area :post_text, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :photo, class: "" %>
+    <%= f.label :photo, "include photo" %>
     <%= f.attachment_field :photo, class: "form-control" %>
   </div>
 
