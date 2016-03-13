@@ -1,21 +1,91 @@
 <div class="container">
   <div class="row">
-    <% if @user %>
+    <% if @user.present? %>
 
       <div class="col-md-4">
         <div class="thumbnail">
-          <div class="profile-picture">
-            <%= image_tag attachment_url(@user, :photo, :fill, 270, 270, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
-            <hr>
-          </div>
           <div class="nav-controls">
-            <% if @current_user %>
-              <%= link_to @user.name, user_path(name: @user.name) %>
-              <!-- followers  -->
-              <!-- following -->
-              <!-- add option to follow if user != current_user -->
-            <% end %>
+            <div class="followers">
+              <% if @current_user %>
+                <strong><%= link_to @user.name, user_path(name: @user.name) %></strong>
+                <% if @current_user != @user %>
+                  <% if @current_user.blocks.include?(@user) %>
+                    <small class="", style="color: red;">user blocked</small>
+                    <small>
+                      <%= link_to unblock_path(id: @user.id) do %>
+                        (unblock user?)
+                      <% end %>
+                    </small>
+                  <% else %>
+                    <small>
+                      <%= link_to block_path(id: @user.id) do %>
+                        block user?
+                        <i class="fa fa-ban"></i>
+                      <% end %>
+                    </small>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
+          <hr>
+
+          <div class="post-photo">
+            <div class="photo-container">
+              <%= image_tag attachment_url(@user, :photo, :fill, 270, 270, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
+            </div>
+          </div>
+
+          <div class="nav-controls">
+            <div class="followers">
+              <% if @current_user == @user %>
+                <div><%= @current_user.following_users_count %> following </div>
+                <div><%= @current_user.count_user_followers %> followers </div>
+              <% elsif @user %>
+                <div><%= @user.following_users_count %> following </div>
+                <div><%= @user.count_user_followers %> followers </div>
+                <div>
+                  <% if @current_user.following?(@user)%>
+                    <em><%= link_to "following", unfollow_path(id: @user.id) %></em>
+                  <% else %>
+                    <em><%= link_to "follow", follow_path(id: @user.id) %></em>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <hr>
+
+          <div class="nav-controls">
+            <div class="followers">
+              <% if @current_user == @user %>
+                <div class="">
+                  <%= "Following" if @current_user.following_users_count > 0 %>
+                  <% @current_user.following_users.each do |user| %>
+                    <p><small><%= link_to user.name, user_path(name: user.name) %></small></p>
+                  <% end %>
+                  <%= "Followers" if @current_user.count_user_followers > 0 %>
+                  <% @current_user.user_followers.each do |user| %>
+                    <p><small><%= link_to user.name, user_path(name: user.name) %></small></p>
+                  <% end %>
+                </div>
+
+              <% elsif @user %>
+                <div class="">
+                  <%= "Following" if @user.following_users_count > 0 %>
+                  <% @user.following_users.each do |user| %>
+                    <p><small><%= link_to user.name, user_path(name: user.name) %></small></p>
+                  <% end %>
+                  <%= "Followers" if @user.count_user_followers > 0 %>
+                  <% @user.user_followers.each do |user| %>
+                    <p><small><%= link_to user.name, user_path(name: user.name) %></small></p>
+                  <% end %>
+                </div>
+
+              <% end %>
+            </div>
+          </div>
+
         </div>
       </div>
 

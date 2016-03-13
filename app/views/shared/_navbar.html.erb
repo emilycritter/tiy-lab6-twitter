@@ -1,11 +1,25 @@
 <div class="col-md-4">
   <div class="thumbnail">
-    <div class="profile-picture">
+    <div class="post-photo">
       <% if @current_user %>
-        <%= image_tag attachment_url(@current_user, :photo, :fill, 270, 270, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
-        <hr>
+        <div class="photo-container">
+          <%= image_tag attachment_url(@current_user, :photo, :fill, 270, 270, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
+        </div>
+      <% else %>
+        <div class="photo-container">
+          <%= image_tag "kitty-icon.png", style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
+        </div>
       <% end %>
     </div>
+    <div class="nav-controls">
+      <div class="followers">
+        <% if @current_user %>
+          <div><%= @current_user.following_users_count %> following </div>
+          <div><%= @current_user.count_user_followers %> followers </div>
+        <% end %>
+      </div>
+    </div>
+    <hr>
     <div class="nav-controls">
       <% if @current_user %>
         <%= link_to new_post_path do %>
