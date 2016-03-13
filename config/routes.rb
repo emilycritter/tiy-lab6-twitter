@@ -20,6 +20,16 @@ Rails.application.routes.draw do
   patch 'posts/:id' => 'posts#update'
   delete 'posts/:id' => 'posts#delete'
 
+  get 'user/:name/follow' => 'user#follow', as: :follow
+  patch 'user/:name/follow' => 'user#follow'
+  get 'user/:name/unfollow' => 'user#unfollow', as: :unfollow
+  patch 'user/:name/unfollow' => 'user#unfollow'
+
+  get 'user/:name/block' => 'user#block', as: :block
+  patch 'user/:name/block' => 'user#block'
+  get 'user/:name/unblock' => 'user#unblock', as: :unblock
+  patch 'user/:name/unblock' => 'user#unblock'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -9,7 +9,7 @@
 
 $h1-font: 'Bree Serif', serif;
 $blog-font: 'Raleway', sans-serif;
-$font-color: #333333;
+$font-color: #5b5b5b;
 $purple: #445291;
 
 .body {
@@ -84,6 +84,11 @@ p {
   i {
     font-size: 16px;
   }
+  text-decoration: none;
+}
+.post {
+  color: $font-color;
+  text-decoration: none;
 }
 .post-photo {
   display: flex;
@@ -98,12 +103,23 @@ p {
   i {
     font-size: 20px;
   }
+  color: $font-color;
+  text-decoration: none;
 }
 .nav-controls {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 30px;
   align-items: center;
   padding-top: 10px;
+  color: $font-color;
+  text-decoration: none;
+  .followers {
+    font-feature-settings: "onum", "lnum" off;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 100%;
+  }
 }
