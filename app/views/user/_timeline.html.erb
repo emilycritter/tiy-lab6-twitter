@@ -1,28 +1,43 @@
-<div class="container">
-  <% @posts.order("created_at desc").each do |post| %>
-    <div class="thumbnail">
-      <% if post.user %>
-        <%= link_to user_path(name: post.user.name) do %>
-          <strong><%= post.user.name %></strong>
-        <% end %>
-        &nbsp;&nbsp;
-      <% end %>
-      <small>
-        <span class="glyphicon glyphicon-time"></span>
-        at
-        <%= link_to post_path(id: post.id) do %>
-          <%= distance_of_time_in_words post.created_at, Time.now %> ago
-        <% end %>
-      </small>
-      <div class="post">
-        <br>
-        <% if post.photo %>
-          &nbsp;&nbsp;<%= image_tag attachment_url(post, :photo, :fill, 400, 400, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: 0 auto;"%>
-          <br>
-          <br>
-        <% end %>
-        <%= post.post_text %>
+<div class="col-md-9">
+
+    <% @posts.order("created_at desc").each do |post| %>
+      <div class="thumbnail">
+        <div class="post-heading">
+          <% if post.user %>
+            <%= link_to user_path(name: post.user.name) do %>
+              <strong><%= post.user.name %></strong>
+            <% end %>
+            <hr>
+          <% end %>
+        </div>
+
+        <div class="post">
+          <% if post.photo %>
+            <%= image_tag attachment_url(post, :photo, :fill, 500, 500, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px;"%>
+            <br>
+            <br>
+          <% end %>
+          <%= post.post_text %>
+        </div>
+        <hr>
+
+        <div class="post-details">
+          <div>
+            <span class="glyphicon glyphicon-time"></span>
+            at
+            <%= distance_of_time_in_words post.created_at, Time.now %> ago
+          </div>
+          <% if true %>
+            <i class="fa fa-heart-o"></i>
+          <% else %>
+            <i class="fa fa-heart"></i>
+          <% end %>
+          <%= link_to post_path(id: post.id) do %>
+            <i class="fa fa-external-link-square"></i>
+          <% end %>
+        </div>
+
       </div>
-    </div>
-  <% end %>
+    <% end %>
+    
 </div>

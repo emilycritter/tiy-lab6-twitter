@@ -1,26 +1,53 @@
-<%= render 'shared/navbar' %>
 <div class="container">
-    <div class="thumbnail">
-      <strong><%= @post.user.name if @post.user %>&nbsp;&nbsp;</strong>
-      <small>
-        <span class="glyphicon glyphicon-time"></span>
-        at
-        <%= @post.created_at.strftime("%b %d, %Y") %>
-      </small>
-      <% if @post.user == @current_user %>
-        &nbsp;&nbsp;
-        <%= link_to edit_post_path(id: @post.id) do %>
-          <i class="fa fa-pencil-square-o", id="new-post", style="font-size: 20px; line-height: 72px;"></i>
-        <% end %>
-        &nbsp;&nbsp;
-      <% end %>
-      <div class="post">
-        <% if @post.photo %>
-          <%= image_tag attachment_url(@post, :photo, :fill, 400, 400, format: "jpg"), style:"border: 1px solid #445291; border-radius: 5px; margin: 0 auto;"%>
-          <br>
-          <br>
-        <% end %>
-        <%= @post.post_text %>
+  <div class="row">
+    <%= render 'shared/navbar' %>
+
+    <div class="col-md-9">
+      <div class="thumbnail">
+        <div class="post-heading">
+          <% if @post.user %>
+            <%= link_to user_path(name: @post.user.name) do %>
+              <strong><%= @post.user.name %></strong>
+            <% end %>
+          <% end %>
+          <% if @post.user == @current_user %>
+            &nbsp;&nbsp;
+            <%= link_to edit_post_path(id: @post.id) do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+          <% end %>
+          <hr>
+        </div>
+
+        <div class="post">
+          <% if @post.photo %>
+            <%= image_tag attachment_url(@post, :photo, :fill, 500, 500, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: 0 auto;"%>
+            <br>
+            <br>
+          <% end %>
+          <%= @post.post_text %>
+        </div>
+        <hr>
+
+        <div class="post-details">
+          <div>
+            <span class="glyphicon glyphicon-time"></span>
+            at
+            <%= distance_of_time_in_words @post.created_at, Time.now %> ago
+          </div>
+          <% if true %>
+            <i class="fa fa-heart-o"></i>
+          <% else %>
+            <i class="fa fa-heart"></i>
+          <% end %>
+          <%= link_to post_path(id: @post.id) do %>
+            <i class="fa fa-external-link-square"></i>
+          <% end %>
+        </div>
+        
       </div>
+
     </div>
+
+  </div>
 </div>
