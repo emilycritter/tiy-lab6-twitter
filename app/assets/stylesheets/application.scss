@@ -1,5 +1,6 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'opentype';
 @import 'home';
 @import 'session';
 @import 'user';
@@ -11,32 +12,24 @@ $blog-font: 'Raleway', sans-serif;
 $font-color: #333333;
 $purple: #445291;
 
-.navbar {
-  background-color: #fff;
-  height: 82px;
+.body {
+  font-family: $blog-font;
 }
 .main-header {
   align-items: center;
   text-align: center;
   height: 50px;
   background-color: $purple;
+  color: #fff;
+  font-weight: lighter;
+  font-size: 18px;
+  font-feature-settings: "liga", "kern", "dlig";
 }
-.container {
-  max-height: 100%;
-  padding: 5px;
-}
-.navbar-right {
-  height: 70px;
-  max-width: 70%;
-  a {
-    line-height: 72px;
-  }
-  .btn {
-    line-height: 20px;
-  }
-}
-.navbar-left {
-  max-width: 20%;
+.post-heading {
+  color: $purple;
+  text-decoration: none;
+  font-size: 16px;
+  font-feature-settings: "liga", "kern", "dlig";
 }
 h1 {
   font-family: $h1-font;
@@ -64,11 +57,46 @@ p {
 }
 .container {
   min-width: 95%;
+  justify-content: center;
+  padding: 5px;
 }
 .container-fluid {
   max-width: 95%;
   min-width: 95%;
 }
 .thumbnail {
-  padding: 10px;
+  padding: 20px;
+  margin: 20px auto;
+}
+.col-md-9 {
+  .thumbnail {
+    max-width: 850px;
+  }
+}
+.col-md-3 {
+  .thumnail {
+    max-width: 300px;
+  }
+}
+.post-heading {
+  i {
+    font-size: 16px;
+  }
+}
+.post-details {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  i {
+    font-size: 20px;
+  }
+}
+.nav-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 30px;
+  align-items: center;
+  padding-top: 10px;
 }

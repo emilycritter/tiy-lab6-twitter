@@ -15,11 +15,9 @@ class CanAddPostTest < Capybara::Rails::TestCase
     click_button "Sign In"
     visit new_post_path
 
-    save_and_open_page
-
     within("#new_post") do
-      fill_in "Post", with: "new meows. all the meows"
-      attach_file('Photo', "#{Rails.root}/test/fixtures/kitty.jpg")
+      fill_in "catter chatter", with: "new meows. all the meows"
+      attach_file('include photo', "#{Rails.root}/test/fixtures/kitty.jpg")
       click_button "Create Post"
     end
 
