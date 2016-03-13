@@ -1,10 +1,14 @@
 class UserController < ApplicationController
-  def new
-    @user = User.new
+  before_action except: [:timeline] do
+    @current_user = User.find_by id: session[:user_id]
+    if @current_user.blank?
+      store_location
+      redirect_to sign_in_path
+    end
   end
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :photo)
+  def new
+    @user = User.new
   end
 
   def create
@@ -15,6 +19,23 @@ class UserController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @user = User.find_by(name: params[:name])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    if @user.update user_params
+      root_path
+    else
+      render :edit
+    end
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :photo)
   end
 
   def timeline

@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get 'sign_out' => 'session#delete', as: :sign_out
 
   get 'sign_up' => 'user#new', as: :new_user
-  post 'sign_up' => 'user#create', as: :users
   get ':name' => 'user#show', as: :user
+  post 'sign_up' => 'user#create'
+  get 'user/:name/edit' => 'user#edit', as: :edit_user
 
   get 'posts' => 'posts#index', as: :posts
   get 'posts/new' => 'posts#new', as: :new_post
