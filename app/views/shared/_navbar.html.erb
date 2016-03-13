@@ -2,7 +2,7 @@
   <div class="thumbnail">
     <div class="profile-picture">
       <% if @current_user %>
-        <%= image_tag attachment_url(@current_user, :photo, :fill, 200, 200, format: "jpg"), style:"max-width: 70px; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
+        <%= image_tag attachment_url(@current_user, :photo, :fill, 270, 270, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
       <% end %>
     </div>
     <div class="nav-controls">
