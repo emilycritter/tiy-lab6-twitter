@@ -1,51 +1,66 @@
 <div class="container">
   <div class="row">
-    <%= render 'shared/navbar' %>
+    <% if @user %>
 
-    <div class="col-md-8">
-      <% if @user %>
-        <% @user.posts.order("created_at desc").each do |post| %>
-          <div class="thumbnail">
-            <div class="post-heading">
-              <% if post.user %>
-                <%= link_to user_path(name: post.user.name) do %>
-                  <%= post.user.name %>
-                <% end %>
-                <hr>
-              <% end %>
-            </div>
-
-            <div class="post">
-              <% if post.photo %>
-                <div class="post-photo">
-                  <%= image_tag attachment_url(post, :photo, :fill, 500, 500, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: 0 auto;"%>
-                </div>
-                <br>
-              <% end %>
-              <%= post.post_text %>
-            </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="profile-picture">
+            <%= image_tag attachment_url(@user, :photo, :fill, 270, 270, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: auto;"%>
             <hr>
-
-            <div class="post-details">
-              <div>
-                <span class="glyphicon glyphicon-time"></span>
-                at
-                <%= distance_of_time_in_words post.created_at, Time.now %> ago
-              </div>
-              <% if true %>
-                <i class="fa fa-heart-o"></i>
-              <% else %>
-                <i class="fa fa-heart"></i>
-              <% end %>
-              <%= link_to post_path(id: post.id) do %>
-                <i class="fa fa-external-link-square"></i>
-              <% end %>
-            </div>
-
           </div>
-        <% end %>
-      <% end %>
-    </div>
+          <div class="nav-controls">
+            <% if @current_user %>
+              <%= link_to @user.name, user_path(name: @user.name) %>
+              <!-- followers  -->
+              <!-- following -->
+            <% end %>
+          </div>
+        </div>
+      </div>
 
+      <div class="col-md-8">
+          <% @user.posts.order("created_at desc").each do |post| %>
+            <div class="thumbnail">
+              <div class="post-heading">
+                <% if post.user %>
+                  <%= link_to user_path(name: post.user.name) do %>
+                    <%= post.user.name %>
+                  <% end %>
+                  <hr>
+                <% end %>
+              </div>
+
+              <div class="post">
+                <% if post.photo %>
+                  <div class="post-photo">
+                    <%= image_tag attachment_url(post, :photo, :fill, 500, 500, format: "jpg"), style:"max-width: 100%; border: 1px solid #445291; border-radius: 5px; margin: 0 auto;"%>
+                  </div>
+                  <br>
+                <% end %>
+                <%= post.post_text %>
+              </div>
+              <hr>
+
+              <div class="post-details">
+                <div>
+                  <span class="glyphicon glyphicon-time"></span>
+                  at
+                  <%= distance_of_time_in_words post.created_at, Time.now %> ago
+                </div>
+                <% if true %>
+                  <i class="fa fa-heart-o"></i>
+                <% else %>
+                  <i class="fa fa-heart"></i>
+                <% end %>
+                <%= link_to post_path(id: post.id) do %>
+                  <i class="fa fa-external-link-square"></i>
+                <% end %>
+              </div>
+
+            </div>
+          <% end %>
+
+      </div>
+    <% end %>
   </div>
 </div>
