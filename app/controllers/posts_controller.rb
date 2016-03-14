@@ -52,6 +52,9 @@ class PostsController < ApplicationController
   end
 
   def delete
+    @post = Post.find_by id: params[:id]
+    @post.destroy
+    redirect_to root_path
   end
 
   def post_params
