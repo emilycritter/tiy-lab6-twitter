@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   patch 'posts/:id' => 'posts#update'
   delete 'posts/:id' => 'posts#delete'
 
+  get 'user/edit-photo/:id' => 'user#edit_photo', as: :edit_photo
+  patch ':id'=> 'user#update_photo'
+
   get 'user/:name/follow' => 'user#follow', as: :follow
   patch 'user/:name/follow' => 'user#follow'
   get 'user/:name/unfollow' => 'user#unfollow', as: :unfollow
