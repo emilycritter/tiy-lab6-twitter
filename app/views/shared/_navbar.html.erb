@@ -1,5 +1,13 @@
 <div class="col-md-4">
   <div class="thumbnail">
+    <div class="link-to-all">
+      <%= link_to posts_path do %>
+        all chatter
+        <%= image_tag "yarn.png", style:"max-height: 30px;" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="thumbnail">
     <div class="post-photo">
       <% if @current_user && @current_user.photo %>
         <div class="photo-container">

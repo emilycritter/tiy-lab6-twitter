@@ -15,6 +15,13 @@ $purple: #445291;
 .body {
   font-family: $blog-font;
 }
+a {
+  color: $purple;
+}
+.btn {
+  background-color: $purple;
+  border: darken($purple, 20%);
+}
 .main-header {
   align-items: center;
   text-align: center;
@@ -25,10 +32,13 @@ $purple: #445291;
   font-size: 18px;
   font-feature-settings: "liga", "kern", "dlig";
 }
-.post-heading {
+.link-to-all {
+  align-items: center;
+  text-align: center;
+  height: 50px;
   color: $purple;
-  text-decoration: none;
-  font-size: 16px;
+  font-weight: lighter;
+  font-size: 18px;
   font-feature-settings: "liga", "kern", "dlig";
 }
 h1 {
@@ -81,10 +91,16 @@ p {
   }
 }
 .post-heading {
-  i {
+  a {
+    text-decoration: none;
     font-size: 16px;
+    font-feature-settings: "liga", "kern", "dlig";
+    color: $purple;
+    &:hover {
+      text-decoration: none;
+      color: $purple;
+    }
   }
-  text-decoration: none;
 }
 .post {
   color: $font-color;
