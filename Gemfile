@@ -60,3 +60,5 @@ gem 'refile-postgres'
 gem "rails-erd"
 gem "acts_as_follower"
 gem 'faker'
+gem 'kaminari', '~> 0.16.3'
+gem 'kaminari-bootstrap'
