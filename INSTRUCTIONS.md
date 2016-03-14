@@ -75,4 +75,4 @@ Feature Tests:
 * Getting the list of messages for You + people you follow is tricky'ish.
 
 ## Additional Resources
-* (Acts As Follower)[https://github.com/tcocca/acts_as_follower]
+* [Acts As Follower](https://github.com/tcocca/acts_as_follower)
