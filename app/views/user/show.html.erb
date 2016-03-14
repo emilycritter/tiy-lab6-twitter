@@ -77,11 +77,11 @@
               <% if @current_user == @user %>
                 <div class="">
                   <%= "Following" if @current_user.following_users_count > 0 %>
-                  <% @current_user.following_users.each do |user| %>
+                  <% @current_user.following_users.order("name ASC").each do |user| %>
                     <p><small><%= link_to user.name, user_path(name: user.name) %></small></p>
                   <% end %>
                   <%= "Followers" if @current_user.count_user_followers > 0 %>
-                  <% @current_user.user_followers.each do |user| %>
+                  <% @current_user.user_followers.order("name ASC").each do |user| %>
                     <p><small><%= link_to user.name, user_path(name: user.name) %></small></p>
                   <% end %>
                 </div>
@@ -89,11 +89,11 @@
               <% elsif @user %>
                 <div class="">
                   <%= "Following" if @user.following_users_count > 0 %>
-                  <% @user.following_users.each do |user| %>
+                  <% @user.following_users.order("name ASC").each do |user| %>
                     <p><small><%= link_to user.name, user_path(name: user.name) %></small></p>
                   <% end %>
                   <%= "Followers" if @user.count_user_followers > 0 %>
-                  <% @user.user_followers.each do |user| %>
+                  <% @user.user_followers.order("name ASC").each do |user| %>
                     <p><small><%= link_to user.name, user_path(name: user.name) %></small></p>
                   <% end %>
                 </div>
