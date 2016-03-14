@@ -138,4 +138,24 @@ p {
     justify-content: space-between;
     min-width: 100%;
   }
+  i {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .nav-controls {
+    flex-direction: column;
+    padding: 0;
+    strong {
+      font-size: 12px;
+      font-weight: normal;
+      i {
+        font-size: 12px;
+      }
+    }
+    p {
+      font-size: 8px;
+      margin: 2px 0;
+    }
+  }
 }
