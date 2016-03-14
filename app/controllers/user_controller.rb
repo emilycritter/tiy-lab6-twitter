@@ -41,6 +41,19 @@ class UserController < ApplicationController
     @current_user = User.find_by id: user_id if user_id.present?
   end
 
+  def edit_photo
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update_photo
+    @user = User.find_by(id: params[:id])
+    if @user.update user_params
+      redirect_to user_path(name: @user.name)
+    else
+      render :edit_photo
+    end
+  end
+
   def follow
     @user = User.find_by(name: params[:name])
 

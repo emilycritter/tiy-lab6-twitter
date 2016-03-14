@@ -24,6 +24,10 @@
                       <% end %>
                     </small>
                   <% end %>
+                <% else %>
+                  <small>
+                    <%= link_to "Update profile photo", edit_photo_path(id: @user.id) %>
+                  </small>
                 <% end %>
               <% else %>
                 <strong><%= @user.name %></strong>
