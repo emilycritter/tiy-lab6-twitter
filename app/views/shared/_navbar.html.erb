@@ -1,5 +1,13 @@
 <div class="col-md-4">
   <div class="thumbnail">
+    <div class="link-to-all">
+      <%= link_to posts_path do %>
+        all chatter
+        <%= image_tag "yarn.png", style:"max-height: 30px;" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="thumbnail">
     <div class="post-photo">
       <% if @current_user && @current_user.photo %>
         <div class="photo-container">
@@ -23,12 +31,12 @@
     <div class="nav-controls">
       <% if @current_user %>
         <%= link_to new_post_path do %>
-          <i class="fa fa-pencil-square-o", id="new-post", style="font-size: 20px; line-height: 72px; max-height: 100%;"></i>
+          <i class="fa fa-pencil-square-o", id="new-post", style="font-size: 20px; max-height: 100%;"></i>
         <% end %>
-          <%= link_to user_path(name: @current_user.name) do %>
-            <%= @current_user.name %>
-            <i class="fa fa-user"></i>
-          <% end %>
+        <%= link_to user_path(name: @current_user.name) do %>
+          <%= @current_user.name %>
+          <i class="fa fa-user"></i>
+        <% end %>
         <%= link_to "Sign Out", sign_out_path, class: "btn btn-primary" %>
       <% else %>
         <%= link_to "hello", root_path %>

@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   post 'sign_up' => 'user#create', as: :users
   get ':name' => 'user#show', as: :user
 
-  get 'posts' => 'posts#index', as: :posts
+  get 'posts/all' => 'posts#index', as: :posts
   get 'posts/new' => 'posts#new', as: :new_post
   get 'posts/:id' => 'posts#show', as: :post
-  post 'posts' => 'posts#create'
+  post 'posts/all' => 'posts#create'
   get 'posts/:id/edit' => 'posts#edit', as: :edit_post
   patch 'posts/:id' => 'posts#update'
   delete 'posts/:id' => 'posts#delete'
