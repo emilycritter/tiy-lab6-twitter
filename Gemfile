@@ -59,3 +59,4 @@ gem "refile-mini_magick"
 gem 'refile-postgres'
 gem "rails-erd"
 gem "acts_as_follower"
+gem 'faker'
