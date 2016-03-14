@@ -13,6 +13,5 @@ deploy:
   app: emilycritter-twitter
   on:
     repo: emilycritter/tiy-lab6-twitter
-    branch: confif-travis-ci
   run:
     - "rake db:migrate"
