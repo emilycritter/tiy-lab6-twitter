@@ -26,11 +26,12 @@ class UserController < ApplicationController
         all_ids = follower_ids << @current_user.id
         @posts = Post.where(user_id: all_ids).order("created_at DESC")
       else
-        @posts = Post.all.order("created_at desc")        
+        @posts = Post.all.order("created_at desc")
       end
     else
       @posts = Post.all.order("created_at desc")
     end
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(25)
   end
 
   def show

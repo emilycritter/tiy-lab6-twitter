@@ -3,7 +3,7 @@
     <%= render 'shared/navbar' %>
     <div class="col-md-8">
 
-        <% @posts.order("created_at desc").each do |post| %>
+        <% @posts.each do |post| %>
           <div class="thumbnail">
             <div class="post-heading">
               <% if post.user %>
@@ -45,7 +45,7 @@
 
           </div>
         <% end %>
-
+        <nav><%= paginate @posts %></nav>
     </div>
   </div>
 </div>
