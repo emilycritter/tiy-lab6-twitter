@@ -7,8 +7,8 @@
           <div class="nav-controls">
             <div class="followers">
               <% if @current_user %>
-                <strong><%= link_to @user.name, user_path(name: @user.name) %></strong>
                 <% if @current_user != @user %>
+                  <strong><%= @user.name %></strong>
                   <% if @current_user.blocks.include?(@user) %>
                     <small class="", style="color: red;">user blocked</small>
                     <small>
@@ -25,6 +25,12 @@
                     </small>
                   <% end %>
                 <% else %>
+                  <strong>
+                    <%= link_to new_post_path do %>
+                      <i class="fa fa-pencil-square-o", id="new-post", style="font-size: 20px; max-height: 100%;"></i>
+                    <% end %>
+                    <%= link_to @user.name, user_path(name: @user.name) %>
+                  </strong>
                   <small>
                     <%= link_to "Update profile photo", edit_photo_path(id: @user.id) %>
                   </small>
