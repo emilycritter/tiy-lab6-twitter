@@ -116,6 +116,7 @@ p {
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+  align-content: center;
   i {
     font-size: 20px;
   }
@@ -156,6 +157,12 @@ p {
     p {
       font-size: 8px;
       margin: 2px 0;
+    }
+  }
+  .post-details {
+    font-size: 12px;
+    i {
+      font-size: 12px;
     }
   }
 }
