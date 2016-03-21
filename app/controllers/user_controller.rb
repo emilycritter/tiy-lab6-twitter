@@ -31,7 +31,7 @@ class UserController < ApplicationController
     else
       @posts = Post.all.order("created_at desc")
     end
-    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(25)
+    @posts = @posts.page(params[:page]).per(25)
   end
 
   def show
